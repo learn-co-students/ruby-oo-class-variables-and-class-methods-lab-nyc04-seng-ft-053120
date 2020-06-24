@@ -3,8 +3,6 @@ class Song
     @@count = 0
     @@genres = []
     @@artists = []
-    @@genre_count = {}
-    @@artist_count = {} 
     def initialize(name, artist, genre)
         @name = name
         @artist = artist
@@ -23,23 +21,25 @@ class Song
         @@artists.uniq
     end
     def self.genre_count
+        genre_count={}
         @@genres.each do |genre|
-            if !@@genre_count[genre]
-                @@genre_count[genre] = 1
+            if !genre_count[genre]
+                genre_count[genre] = 1
             else 
-                @@genre_count[genre] += 1
+                genre_count[genre] += 1
             end
         end
-        @@genre_count
+        genre_count
     end
     def self.artist_count
+        artist_count={}
         @@artists.each do |genre|
-            if !@@artist_count[genre]
-                @@artist_count[genre] = 1
+            if !artist_count[genre]
+                artist_count[genre] = 1
             else 
-                @@artist_count[genre] += 1
+                artist_count[genre] += 1
             end
         end
-        @@artist_count
+        artist_count
     end
 end
